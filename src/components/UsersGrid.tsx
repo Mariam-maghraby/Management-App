@@ -1,5 +1,6 @@
 import { DataTable } from 'mantine-datatable';
 import users from '../data/users.json';
+import dayjs from 'dayjs';
 
 export default function UsersDataGrid() {
  
@@ -12,11 +13,13 @@ export default function UsersDataGrid() {
           fontSize="sm"
           columns={[
             { accessor: 'name' },
-            { accessor: 'userName' },
-            { accessor: 'emailAddress'},
+            { accessor: 'userName' , title: 'User Name'},
+            { accessor: 'emailAddress', title: 'Email Address'},
             { accessor: 'group' },
             { accessor: 'status' },
-            { accessor: 'createdOn' }
+            { accessor: 'createdOn',
+            render: ({ createdOn }) => dayjs(createdOn).format('MMM D, YYYY'),
+          }
           ]}
           records={users}
         />

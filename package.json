@@ -13,6 +13,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "dayjs": "^1.11.10",
     "mantine-datatable": "^6.0.0",
     "prettier": "^3.0.3",
     "react": "^18.2.0",

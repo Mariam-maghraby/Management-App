@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import UsersDataGrid from './components/UsersGrid';
+import UsersManagement from './components/UsersManagement';
 
 function App() {
   return (
     <>
-      <UsersDataGrid />
+      <UsersManagement/>
     </>
   );
 }
