@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Group, Code } from "@mantine/core";
+import { useState } from 'react';
+import { Group, Code } from '@mantine/core';
 import {
   IconBellRinging,
   IconFingerprint,
@@ -10,21 +10,22 @@ import {
   IconReceipt2,
   IconSwitchHorizontal,
   IconLogout,
-} from "@tabler/icons-react";
-import classes from "./AppSidebar.module.css";
+} from '@tabler/icons-react';
+import { Logo } from './Logo';
+import classes from './AppSidebar.module.css';
 
 const data = [
-  { link: "", label: "Notifications", icon: IconBellRinging },
-  { link: "", label: "Billing", icon: IconReceipt2 },
-  { link: "", label: "Security", icon: IconFingerprint },
-  { link: "", label: "SSH Keys", icon: IconKey },
-  { link: "", label: "Databases", icon: IconDatabaseImport },
-  { link: "", label: "Authentication", icon: Icon2fa },
-  { link: "", label: "Other Settings", icon: IconSettings },
+  { link: '', label: 'Notifications', icon: IconBellRinging },
+  { link: '', label: 'Billing', icon: IconReceipt2 },
+  { link: '', label: 'Security', icon: IconFingerprint },
+  { link: '', label: 'SSH Keys', icon: IconKey },
+  { link: '', label: 'Databases', icon: IconDatabaseImport },
+  { link: '', label: 'Authentication', icon: Icon2fa },
+  { link: '', label: 'Other Settings', icon: IconSettings },
 ];
 
 export function AppSidebar() {
-  const [active, setActive] = useState("Billing");
+  const [active, setActive] = useState('Billing');
 
   const links = data.map((item) => (
     <a
@@ -35,7 +36,8 @@ export function AppSidebar() {
       onClick={(event) => {
         event.preventDefault();
         setActive(item.label);
-      }}>
+      }}
+    >
       <item.icon className={classes.linkIcon} stroke={1.5} />
       <span>{item.label}</span>
     </a>
@@ -45,7 +47,7 @@ export function AppSidebar() {
     <nav className={classes.navbar}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} >
-          {/* <MantineLogo size={28} inverted style={{ color: "white" }} /> */}
+          <Logo style={{ width: 120 }}  />
           <Code fw={700} className={classes.version}>
             v3.1.2
           </Code>
@@ -54,18 +56,12 @@ export function AppSidebar() {
       </div>
 
       <div className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}>
+        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
           <span>Change account</span>
         </a>
 
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}>
+        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>
