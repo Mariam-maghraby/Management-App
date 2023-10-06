@@ -9,12 +9,12 @@ import {
   TextInput,
   Anchor,
   Avatar,
-  Accordion,
   Input,
   Stack,
   ActionIcon,
   Select,
   Text,
+  Button,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import {
@@ -22,10 +22,12 @@ import {
   IconCalendar,
   IconLockSquareRounded,
   IconChevronDown,
-  IconHash,
-  IconLogicAnd,
   IconLockOff,
   IconEdit,
+  IconUserCancel,
+  IconBasketCancel,
+  IconDots,
+  IconDownload,
 } from "@tabler/icons-react";
 
 export default function UsersDataGrid() {
@@ -63,21 +65,45 @@ export default function UsersDataGrid() {
             placeholder="Date input"
             // icon={IconCalendar}
           />
-          <Anchor href="https://mantine.dev/" target="_blank">
+          <Anchor href="/" target="_blank">
             All Filters
           </Anchor>
         </Group>
 
-        <Group ml="md" mb="md">
-          {selectedRecords.length && (
-            <Text c="dimmed">{selectedRecords.length} selected |</Text>
-          )}
-          <ActionIcon variant="filled" aria-label="Lock">
-            <IconLockOff size="1.125rem" />
-          </ActionIcon>
-          <ActionIcon variant="filled" color="gray" aria-label="Edit">
-            <IconEdit size="1.125rem" />
-          </ActionIcon>
+        <Group position="apart">
+          <Group ml="md" mb="md" mr="xl">
+            {selectedRecords.length && (
+              <Text c="dimmed">{selectedRecords.length} selected |</Text>
+            )}
+            <ActionIcon variant="light" aria-label="Lock">
+              <IconLockOff size="1.125rem" />
+            </ActionIcon>
+            <ActionIcon variant="light" color="gray" aria-label="Edit">
+              <IconEdit size="1.125rem" />
+            </ActionIcon>
+            <ActionIcon variant="light" color="gray" aria-label="Cancel">
+              <IconUserCancel size="1.125rem" />
+            </ActionIcon>
+            <Button variant="light" size="md" compact color="gray" >
+              Assign to Profile
+            </Button>
+            <Button variant="light" size="md" compact color="gray" >
+              Assign to Group
+            </Button>
+            <ActionIcon variant="light" color="gray" aria-label="Options">
+              <IconDots size="1.125rem" />
+            </ActionIcon>
+            {selectedRecords.length && (
+              <Text c="dimmed" td="underline">
+                unselect All
+              </Text>
+            )}
+            <Group  pr={"xs"} pl={"xl"} mr={"xs"} ml="xl">
+              <ActionIcon variant="light" color="gray" aria-label="Download" >
+                <IconDownload size="1.125rem" />
+              </ActionIcon>
+            </Group>
+          </Group>
         </Group>
       </Stack>
       <DataTable
@@ -109,9 +135,10 @@ export default function UsersDataGrid() {
                 style={{ border: 0 }}
                 value={status}
                 variant="unstyled"
+                fw={700} //fontWeight 700
                 rightSection={<IconChevronDown size={14} stroke={1.5} />}
                 onChange={setStatus}
-                data={["Active", "Inactive", "Locked"]}
+                data={["Active", "Inactive", "Locked"]} //
               />
             ),
           },
