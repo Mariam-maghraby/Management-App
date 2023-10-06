@@ -8,7 +8,7 @@ function UsersManagement() {
       
       <Paper shadow="xs" radius="xs" p="xl">
         <Group position="apart">
-          <Title order={3}>User Managment</Title>
+          <Title order={3} color="#050A30">User Managment</Title>
           <Button variant="filled" color="green">
             + New User
           </Button>
