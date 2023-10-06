@@ -1,7 +1,7 @@
 import { DataTable } from 'mantine-datatable';
 import users from '../data/users.json';
 
-export default function BasicUsageExample() {
+export default function UsersDataGrid() {
  
     return (
         <DataTable
