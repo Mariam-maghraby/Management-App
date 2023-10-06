@@ -1,0 +1,36 @@
+
+
+[
+    {
+        "name": "John Doe",
+        "userName": "johndoe",
+        "emailAddress": "johndoe@example.com",
+        "group": "Marketing",
+        "status": "Active",
+        "createdOn": "2023-10-05"
+    },
+    {
+        "name": "Jane Doe",
+        "userName": "janedoe",
+        "emailAddress": "janedoe@example.com",
+        "group": "Sales",
+        "status": "Inactive",
+        "createdOn": "2023-10-05"
+    },
+    {
+        "name": "Bob Smith",
+        "userName": "bobsmith",
+        "emailAddress": "bobsmith@example.com",
+        "group": "Engineering",
+        "status": "Active",
+        "createdOn": "2023-10-05"
+    },
+    {
+        "name": "",
+        "userName": "",
+        "emailAddress": "",
+        "group": "",
+        "status": "",
+        "createdOn": ""
+    } 
+]
