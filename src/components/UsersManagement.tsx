@@ -5,6 +5,7 @@ import { Paper, Title, Group, Button } from "@mantine/core";
 function UsersManagement() {
   return (
     <>
+      
       <Paper shadow="xs" radius="xs" p="xl">
         <Group position="apart">
           <Title order={3}>User Managment</Title>
@@ -14,6 +15,7 @@ function UsersManagement() {
         </Group>
         <UsersDataGrid />
       </Paper>
+
     </>
   );
 }
