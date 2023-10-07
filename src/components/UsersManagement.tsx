@@ -23,7 +23,6 @@ function UsersManagement() {
       username: "",
       status: "Any",
       group: "",
-      terms: true,
     },
 
     validate: {
@@ -75,15 +74,14 @@ function UsersManagement() {
               label="User Group"
               placeholder="Choose User group"
               rightSection={<IconChevronDown size={14} stroke={1.5} />}
-              // onChange={(event) =>
-              //   form.setFieldValue("status", event.currentTarget.value)
-              // }
+              {...form.getInputProps("group")}
               data={["Office", "Engineering", "Sales", "Marketing"]}
             />
             <Select
               label="Assign profile"
               placeholder="Choose profile"
               rightSection={<IconChevronDown size={14} stroke={1.5} />}
+              {...form.getInputProps("status")}
               data={["Active", "Inactive", "Locked"]}
             />
           </Stack>
@@ -94,7 +92,7 @@ function UsersManagement() {
               color="#050A30"
               c="dimmed"
               td="underline"
-              // onClick={() => toggle()}
+              // onClick={() => ResetAll()}
               size="xs">
               Reset
             </Anchor>

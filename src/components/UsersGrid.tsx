@@ -93,10 +93,9 @@ export default function UsersDataGrid() {
             <TextInput
               icon={<IconSearch />}
               placeholder="Search.."
-              // onChange={(event) => getSearchResults(event)}
               onChange={(e) => setQuery(e.currentTarget.value)}
             />
-            <TextInput value={"User Name"} />
+            <TextInput value={"User Name"} readOnly />
           </Group>
           <Select
             label="User Status"
@@ -110,7 +109,6 @@ export default function UsersDataGrid() {
           <DateInput
             icon={<IconCalendar />}
             value={date}
-            // variant="unstyled"
             onChange={getCreationDateFilterResults}
             label="Creation Date"
             placeholder="Date input"
@@ -201,7 +199,7 @@ export default function UsersDataGrid() {
                 fw={700} //fontWeight 700
                 rightSection={<IconChevronDown size={14} stroke={1.5} />}
                 onChange={setStatus}
-                data={["Active", "Inactive", "Locked"]} //
+                data={["Active", "Inactive", "Locked"]} 
               />
             ),
           },
