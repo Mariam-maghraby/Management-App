@@ -2,7 +2,7 @@ import { DataTable } from "mantine-datatable";
 import users from "../data/users.json";
 import dayjs from "dayjs";
 import { User } from "../types/User";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Group,
   Paper,
@@ -37,6 +37,7 @@ export default function UsersDataGrid() {
 
   const [query, setQuery] = useState("");
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
+  const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
   const [debouncedQuery] = useDebouncedValue(query, 200);
 
   // const getSearchResults = (event: {
@@ -47,10 +48,12 @@ export default function UsersDataGrid() {
 
   useEffect(() => {
     setRecords(
-      initialRecords.filter(({ userName, group }) => {
+      initialRecords.filter(({ userName, group, status }) => {
         if (
           debouncedQuery !== "" &&
-          !`${userName}`.toLowerCase().includes(debouncedQuery.trim().toLowerCase())
+          !`${userName}`
+            .toLowerCase()
+            .includes(debouncedQuery.trim().toLowerCase())
         ) {
           return false;
         }
@@ -58,16 +61,24 @@ export default function UsersDataGrid() {
         if (selectedGroups.length && !selectedGroups.some((g) => g === group)) {
           return false;
         }
+
+        if (
+          selectedStatus.length &&
+          !selectedStatus.some((s) => s === status)
+        ) {
+          return false;
+        }
         return true;
       })
     );
-  }, [debouncedQuery, selectedGroups]);
+  }, [debouncedQuery, selectedGroups, selectedStatus]);
 
   const getStatusFilterResults = (value: string) => {
     if (value === "Any") {
-      return users;
+      return ;
     } else {
-      return users.filter((user) => user.status === value);
+      setStatus(value);
+      setRecords(users.filter((user) => user.status === value));
     }
   };
 
