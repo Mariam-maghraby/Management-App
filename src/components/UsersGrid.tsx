@@ -2,7 +2,7 @@ import { DataTable } from "mantine-datatable";
 import users from "../data/users.json";
 import dayjs from "dayjs";
 import { User } from "../types/User";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import {
   Group,
   Paper,
@@ -19,14 +19,12 @@ import { DateInput } from "@mantine/dates";
 import {
   IconSearch,
   IconCalendar,
-  IconLockSquareRounded,
   IconChevronDown,
-  IconLockOff,
-  IconEdit,
-  IconUserCancel,
-  IconBasketCancel,
   IconDots,
   IconDownload,
+  IconPencil,
+  IconBan,
+  IconLock,
 } from "@tabler/icons-react";
 
 export default function UsersDataGrid() {
@@ -86,15 +84,14 @@ export default function UsersDataGrid() {
             {selectedRecords.length && (
               <>
                 <Text c="dimmed">{selectedRecords.length} selected |</Text>
-
-                <ActionIcon variant="light" aria-label="Lock">
-                  <IconLockOff size="1.125rem" />
-                </ActionIcon>
                 <ActionIcon variant="light" color="gray" aria-label="Edit">
-                  <IconEdit size="1.125rem" />
+                  <IconPencil size="1.125rem" />
                 </ActionIcon>
                 <ActionIcon variant="light" color="gray" aria-label="Cancel">
-                  <IconUserCancel size="1.125rem" />
+                  <IconBan size="1.125rem" />
+                </ActionIcon>
+                <ActionIcon variant="light" aria-label="Lock">
+                  <IconLock size="1.125rem" />
                 </ActionIcon>
                 <Button variant="light" size="md" compact color="gray">
                   Assign to Profile

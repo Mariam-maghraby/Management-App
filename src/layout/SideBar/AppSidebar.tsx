@@ -13,7 +13,6 @@ import {
   IconFingerprint,
   IconReceipt2,
   IconSearch,
-  IconDashboard,
   IconLayoutDashboard,
 } from "@tabler/icons-react";
 import { Logo } from "./Logo";
