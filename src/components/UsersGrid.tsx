@@ -9,7 +9,6 @@ import {
   TextInput,
   Anchor,
   Avatar,
-  Input,
   Stack,
   ActionIcon,
   Select,
@@ -84,10 +83,10 @@ export default function UsersDataGrid() {
             <ActionIcon variant="light" color="gray" aria-label="Cancel">
               <IconUserCancel size="1.125rem" />
             </ActionIcon>
-            <Button variant="light" size="md" compact color="gray" >
+            <Button variant="light" size="md" compact color="gray">
               Assign to Profile
             </Button>
-            <Button variant="light" size="md" compact color="gray" >
+            <Button variant="light" size="md" compact color="gray">
               Assign to Group
             </Button>
             <ActionIcon variant="light" color="gray" aria-label="Options">
@@ -98,8 +97,8 @@ export default function UsersDataGrid() {
                 unselect All
               </Text>
             )}
-            <Group  pr={"xs"} pl={"xl"} mr={"xs"} ml="xl">
-              <ActionIcon variant="light" color="gray" aria-label="Download" >
+            <Group pr={"xs"} pl={"xl"} mr={"xs"} ml="xl">
+              <ActionIcon variant="light" color="gray" aria-label="Download">
                 <IconDownload size="1.125rem" />
               </ActionIcon>
             </Group>

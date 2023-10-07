@@ -1,40 +1,38 @@
-
-
 [
-    {
-        "id": "9d7b6df5-aa1e-4203-bfa8-7d9464e331cb",
-        "name": "John Doe",
-        "userName": "johndoe",
-        "emailAddress": "johndoe@example.com",
-        "group": "Marketing",
-        "status": "Active",
-        "createdOn": "2023-10-05"
-    },
-    {
-        "id": "3c147f0b-c63f-4830-8ced-f378aad9efc6",
-        "name": "Jane Doe",
-        "userName": "janedoe",
-        "emailAddress": "janedoe@example.com",
-        "group": "Sales",
-        "status": "Inactive",
-        "createdOn": "2023-10-05"
-    },
-    {
-        "id": "331992e8-7144-49c4-a8fd-fae9a6921b13",
-        "name": "Bob Smith",
-        "userName": "bobsmith",
-        "emailAddress": "bobsmith@example.com",
-        "group": "Engineering",
-        "status": "Active",
-        "createdOn": "2023-10-05"
-    },
-    {
-        "id": "fc257801-7b32-41ca-a31b-57ae6739415b",
-        "name": "",
-        "userName": "",
-        "emailAddress": "",
-        "group": "",
-        "status": "",
-        "createdOn": ""
-    } 
+  {
+    "id": "9d7b6df5-aa1e-4203-bfa8-7d9464e331cb",
+    "name": "John Doe",
+    "userName": "johndoe",
+    "emailAddress": "johndoe@example.com",
+    "group": "Marketing",
+    "status": "Active",
+    "createdOn": "2023-10-05"
+  },
+  {
+    "id": "3c147f0b-c63f-4830-8ced-f378aad9efc6",
+    "name": "Jane Doe",
+    "userName": "janedoe",
+    "emailAddress": "janedoe@example.com",
+    "group": "Sales",
+    "status": "Inactive",
+    "createdOn": "2023-10-06"
+  },
+  {
+    "id": "331992e8-7144-49c4-a8fd-fae9a6921b13",
+    "name": "Bob Smith",
+    "userName": "bobsmith",
+    "emailAddress": "bobsmith@example.com",
+    "group": "Engineering",
+    "status": "Active",
+    "createdOn": "2023-10-08"
+  },
+  {
+    "id": "fc257801-7b32-41ca-a31b-57ae6739415b",
+    "name": "نوران هانى",
+    "userName": "nouran.hany",
+    "emailAddress": "nouranhany@example.com"    ,
+    "group": "Engineering",
+    "status": "Active",
+    "createdOn": "2023-10-07"
+  }
 ]
