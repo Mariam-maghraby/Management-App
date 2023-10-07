@@ -34,6 +34,14 @@ export default function UsersDataGrid() {
   const [status, setStatus] = useState<string | null>("Any");
   const [date, setDate] = useState<Date | null>(new Date());
 
+  const getStatusFilterResults = (status: string | null) => {
+    if (status === "Any") {
+      return users;
+    } else {
+      return users.filter((user) => user.status === status);
+    }
+  }
+
   return (
     <Paper my="xl" py="xl" withBorder radius="md" shadow="md">
       <Stack spacing="xs">
@@ -45,10 +53,10 @@ export default function UsersDataGrid() {
           />
           <TextInput value={"User Name"} />
           <Select
-            style={{ border: 0 }}
             value={status}
+            placeholder="Any"
             rightSection={<IconChevronDown size={14} stroke={1.5} />}
-            onChange={setStatus}
+            onChange={getStatusFilterResults}
             data={["Active", "Inactive", "Locked"]}
           />
 
@@ -58,11 +66,12 @@ export default function UsersDataGrid() {
     </Fieldset> */}
 
           <DateInput
+            icon={<IconCalendar />}
             value={date}
+            variant="unstyled"
             onChange={setDate}
-            // label="Date input"
+            label="Creation Date"
             placeholder="Date input"
-            // icon={IconCalendar}
           />
           <Anchor href="/" target="_blank">
             All Filters
@@ -71,7 +80,9 @@ export default function UsersDataGrid() {
 
         <Group position="apart">
           <Group ml="md" mb="md" mr="xl" pr="xl">
-          {(selectedRecords.length === 0) && (<Text c="dimmed">{users.length} results</Text>)}
+            {selectedRecords.length === 0 && (
+              <Text c="dimmed">{users.length} results</Text>
+            )}
             {selectedRecords.length && (
               <>
                 <Text c="dimmed">{selectedRecords.length} selected |</Text>

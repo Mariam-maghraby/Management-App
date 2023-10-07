@@ -14,6 +14,7 @@ import {
   IconReceipt2,
   IconSearch,
   IconDashboard,
+  IconLayoutDashboard,
 } from "@tabler/icons-react";
 import { Logo } from "./Logo";
 import classes from "./AppSidebar.module.css";
@@ -61,27 +62,22 @@ export function AppSidebar() {
               mr={"sm"}
             />
             <Group spacing={"xs"}>
-              <IconDashboard color="gray" />
+              <IconLayoutDashboard color="gray" />
               <Title order={4} color="gray">
                 Dashboard
               </Title>
             </Group>
-            {/* {links} */}
             <Accordion
               chevronPosition="right"
               defaultValue="User Management"
-              mt={"md"}
-              color="green">
+              mt={"md"}>
               <Accordion.Item value="focus-ring">
                 <Accordion.Control>
                   <Text c="gray" fw={700} fz="md">
                     ATM Settings
                   </Text>
                 </Accordion.Control>
-                <Accordion.Panel>
-                  With new :focus-visible pseudo-class focus ring appears only
-                  when user navigates with keyboard
-                </Accordion.Panel>
+                <Accordion.Panel></Accordion.Panel>
               </Accordion.Item>
               <Accordion.Item value="Busssines Setup">
                 <Accordion.Control>
@@ -89,10 +85,7 @@ export function AppSidebar() {
                     Bussiness Setup
                   </Text>
                 </Accordion.Control>
-                <Accordion.Panel color="green">
-                  Colors, fonts, shadows and many other parts are customizable
-                  to fit your design needs
-                </Accordion.Panel>
+                <Accordion.Panel color="green"></Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item value="management">
@@ -102,8 +95,34 @@ export function AppSidebar() {
                   </Text>
                 </Accordion.Control>
                 <Accordion.Panel>
-                  Configure components appearance and behavior with vast amount
-                  of settings or overwrite any part of component styles
+                  <Accordion
+                    chevronPosition="right"
+                    defaultValue="User Management"
+                    mt={"xs"}>
+                    <Accordion.Item value="focus-ring">
+                      <Accordion.Control>
+                        <Text c="gray" fz="sm" fw={700}>
+                          Users
+                        </Text>
+                      </Accordion.Control>
+                    </Accordion.Item>
+                    <Accordion.Item value="p">
+                      <Accordion.Control>
+                        <Text c="gray" fz="sm" fw={700}>
+                          Profile
+                        </Text>
+                      </Accordion.Control>
+                      <Accordion.Panel color="green"></Accordion.Panel>
+                    </Accordion.Item>
+                    <Accordion.Item value="gp">
+                      <Accordion.Control>
+                        <Text c="gray" fz="sm" fw={700}>
+                          Group
+                        </Text>
+                      </Accordion.Control>
+                      <Accordion.Panel></Accordion.Panel>
+                    </Accordion.Item>
+                  </Accordion>
                 </Accordion.Panel>
               </Accordion.Item>
             </Accordion>
