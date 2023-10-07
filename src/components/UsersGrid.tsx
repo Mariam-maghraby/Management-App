@@ -2,7 +2,7 @@ import { DataTable } from "mantine-datatable";
 import users from "../data/users.json";
 import dayjs from "dayjs";
 import { User } from "../types/User";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import {
   Group,
   Paper,
@@ -34,46 +34,46 @@ export default function UsersDataGrid() {
   const [status, setStatus] = useState<string | null>("Any");
   const [date, setDate] = useState<Date | null>(new Date());
 
-  const getStatusFilterResults = (status: string | null) => {
-    if (status === "Any") {
+  const getStatusFilterResults = (value: string) => {
+    if (value === "Any") {
       return users;
     } else {
-      return users.filter((user) => user.status === status);
+      return users.filter((user) => user.status === value);
     }
-  }
+  };
 
   return (
     <Paper my="xl" py="xl" withBorder radius="md" shadow="md">
-      <Stack spacing="xs">
+      <Stack spacing="sm">
         <Group ml="md">
-          <TextInput
-            icon={<IconSearch />}
-            placeholder="Search.."
-            // onChange={(event) => getSearchResultsWithTitle(event)}
-          />
-          <TextInput value={"User Name"} />
+          <Group mt="md">
+            <TextInput
+              icon={<IconSearch />}
+              placeholder="Search.."
+              // onChange={(event) => getSearchResultsWithTitle(event)}
+            />
+            <TextInput value={"User Name"} />
+          </Group>
           <Select
+            label="User Status"
             value={status}
             placeholder="Any"
             rightSection={<IconChevronDown size={14} stroke={1.5} />}
             onChange={getStatusFilterResults}
             data={["Active", "Inactive", "Locked"]}
+            size="xs"
           />
-
-          {/* <Fieldset legend="Personal information">
-      <TextInput label="Your name" placeholder="Your name" />
-      <TextInput label="Email" placeholder="Email" mt="md" />
-    </Fieldset> */}
-
           <DateInput
             icon={<IconCalendar />}
             value={date}
-            variant="unstyled"
+            // variant="unstyled"
             onChange={setDate}
             label="Creation Date"
             placeholder="Date input"
+            size="xs"
           />
-          <Anchor href="/" target="_blank">
+
+          <Anchor href="/" target="_blank" mt={"md"}>
             All Filters
           </Anchor>
         </Group>
