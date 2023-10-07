@@ -40,12 +40,6 @@ export default function UsersDataGrid() {
   const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
   const [debouncedQuery] = useDebouncedValue(query, 200);
 
-  // const getSearchResults = (event: {
-  //   currentTarget: { value: SetStateAction<string | undefined> };
-  // }) => {
-  //   const user = event.currentTarget.value;
-  // };
-
   useEffect(() => {
     setRecords(
       initialRecords.filter(({ userName, group, status }) => {
@@ -75,11 +69,20 @@ export default function UsersDataGrid() {
 
   const getStatusFilterResults = (value: string) => {
     if (value === "Any") {
-      return ;
+      return;
     } else {
       setStatus(value);
       setRecords(users.filter((user) => user.status === value));
     }
+  };
+
+  const getCreationDateFilterResults = (value: Date) => {
+    setDate(new Date(value));
+    setRecords(
+      users.filter(
+        (user) => user.createdOn === dayjs(value).format("YYYY-MM-DD")
+      )
+    );
   };
 
   return (
@@ -108,7 +111,7 @@ export default function UsersDataGrid() {
             icon={<IconCalendar />}
             value={date}
             // variant="unstyled"
-            onChange={setDate}
+            onChange={getCreationDateFilterResults}
             label="Creation Date"
             placeholder="Date input"
             size="xs"
