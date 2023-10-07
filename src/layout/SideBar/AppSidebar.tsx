@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Group, Code, TextInput, Stack, Accordion, Title } from "@mantine/core";
+import {
+  Group,
+  Code,
+  TextInput,
+  Stack,
+  Accordion,
+  Title,
+  Text,
+} from "@mantine/core";
 import {
   IconBellRinging,
   IconFingerprint,
-  IconKey,
-  IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
   IconReceipt2,
-  IconSwitchHorizontal,
-  IconLogout,
   IconSearch,
   IconDashboard,
 } from "@tabler/icons-react";
@@ -17,13 +19,9 @@ import { Logo } from "./Logo";
 import classes from "./AppSidebar.module.css";
 
 const data = [
-  { link: "", label: "Notifications", icon: IconBellRinging },
-  { link: "", label: "Billing", icon: IconReceipt2 },
-  { link: "", label: "Security", icon: IconFingerprint },
-  { link: "", label: "SSH Keys", icon: IconKey },
-  { link: "", label: "Databases", icon: IconDatabaseImport },
-  { link: "", label: "Authentication", icon: Icon2fa },
-  { link: "", label: "Other Settings", icon: IconSettings },
+  { link: "", label: "ATM Settings", icon: IconBellRinging },
+  { link: "", label: "Business Setup", icon: IconReceipt2 },
+  { link: "", label: "User Management", icon: IconFingerprint },
 ];
 
 export function AppSidebar() {
@@ -63,61 +61,54 @@ export function AppSidebar() {
               mr={"sm"}
             />
             <Group spacing={"xs"}>
-              <IconDashboard  color="gray"/>
+              <IconDashboard color="gray" />
               <Title order={4} color="gray">
                 Dashboard
               </Title>
             </Group>
             {/* {links} */}
-
             <Accordion
-              chevronPosition="left"
-              defaultValue="customization"
-              mt={"md"}>
-              <Accordion.Item value="customization">
-                <Accordion.Control>Customization</Accordion.Control>
+              chevronPosition="right"
+              defaultValue="User Management"
+              mt={"md"}
+              color="green">
+              <Accordion.Item value="focus-ring">
+                <Accordion.Control>
+                  <Text c="gray" fw={700} fz="md">
+                    ATM Settings
+                  </Text>
+                </Accordion.Control>
+                <Accordion.Panel>
+                  With new :focus-visible pseudo-class focus ring appears only
+                  when user navigates with keyboard
+                </Accordion.Panel>
+              </Accordion.Item>
+              <Accordion.Item value="Busssines Setup">
+                <Accordion.Control>
+                  <Text c="gray" fw={700} fz="md">
+                    Bussiness Setup
+                  </Text>
+                </Accordion.Control>
                 <Accordion.Panel color="green">
                   Colors, fonts, shadows and many other parts are customizable
                   to fit your design needs
                 </Accordion.Panel>
               </Accordion.Item>
 
-              <Accordion.Item value="flexibility">
-                <Accordion.Control>Flexibility</Accordion.Control>
+              <Accordion.Item value="management">
+                <Accordion.Control>
+                  <Text c="gray" fw={700} fz="md">
+                    User Management
+                  </Text>
+                </Accordion.Control>
                 <Accordion.Panel>
                   Configure components appearance and behavior with vast amount
                   of settings or overwrite any part of component styles
                 </Accordion.Panel>
               </Accordion.Item>
-
-              <Accordion.Item value="focus-ring">
-                <Accordion.Control>No annoying focus ring</Accordion.Control>
-                <Accordion.Panel>
-                  With new :focus-visible pseudo-class focus ring appears only
-                  when user navigates with keyboard
-                </Accordion.Panel>
-              </Accordion.Item>
             </Accordion>
           </div>
         </Stack>
-
-        <div className={classes.footer}>
-          <a
-            href="#"
-            className={classes.link}
-            onClick={(event) => event.preventDefault()}>
-            <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-            <span>Change account</span>
-          </a>
-
-          <a
-            href="#"
-            className={classes.link}
-            onClick={(event) => event.preventDefault()}>
-            <IconLogout className={classes.linkIcon} stroke={1.5} />
-            <span>Logout</span>
-          </a>
-        </div>
       </nav>
     </Stack>
   );

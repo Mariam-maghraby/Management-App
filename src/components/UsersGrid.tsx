@@ -70,35 +70,45 @@ export default function UsersDataGrid() {
         </Group>
 
         <Group position="apart">
-          <Group ml="md" mb="md" mr="xl">
+          <Group ml="md" mb="md" mr="xl" pr="xl">
+          {(selectedRecords.length === 0) && (<Text c="dimmed">{users.length} results</Text>)}
             {selectedRecords.length && (
-              <Text c="dimmed">{selectedRecords.length} selected |</Text>
+              <>
+                <Text c="dimmed">{selectedRecords.length} selected |</Text>
+
+                <ActionIcon variant="light" aria-label="Lock">
+                  <IconLockOff size="1.125rem" />
+                </ActionIcon>
+                <ActionIcon variant="light" color="gray" aria-label="Edit">
+                  <IconEdit size="1.125rem" />
+                </ActionIcon>
+                <ActionIcon variant="light" color="gray" aria-label="Cancel">
+                  <IconUserCancel size="1.125rem" />
+                </ActionIcon>
+                <Button variant="light" size="md" compact color="gray">
+                  Assign to Profile
+                </Button>
+                <Button variant="light" size="md" compact color="gray">
+                  Assign to Group
+                </Button>
+                <ActionIcon variant="light" color="gray" aria-label="Options">
+                  <IconDots size="1.125rem" />
+                </ActionIcon>
+
+                <Text c="dimmed" td="underline">
+                  unselect All
+                </Text>
+              </>
             )}
-            <ActionIcon variant="light" aria-label="Lock">
-              <IconLockOff size="1.125rem" />
-            </ActionIcon>
-            <ActionIcon variant="light" color="gray" aria-label="Edit">
-              <IconEdit size="1.125rem" />
-            </ActionIcon>
-            <ActionIcon variant="light" color="gray" aria-label="Cancel">
-              <IconUserCancel size="1.125rem" />
-            </ActionIcon>
-            <Button variant="light" size="md" compact color="gray">
-              Assign to Profile
-            </Button>
-            <Button variant="light" size="md" compact color="gray">
-              Assign to Group
-            </Button>
-            <ActionIcon variant="light" color="gray" aria-label="Options">
-              <IconDots size="1.125rem" />
-            </ActionIcon>
-            {selectedRecords.length && (
-              <Text c="dimmed" td="underline">
-                unselect All
-              </Text>
-            )}
-            <Group pr={"xs"} pl={"xl"} mr={"xs"} ml="xl">
-              <ActionIcon variant="light" color="gray" aria-label="Download">
+            <Group
+              mr={"xs"}
+              ml="xl"
+              style={{ marginLeft: "auto", marginRight: 0 }}>
+              <ActionIcon
+                variant="light"
+                color="gray"
+                aria-label="Download"
+                style={{ marginLeft: "auto", marginRight: 0 }}>
                 <IconDownload size="1.125rem" />
               </ActionIcon>
             </Group>

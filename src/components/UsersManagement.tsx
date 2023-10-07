@@ -53,7 +53,6 @@ function UsersManagement() {
                 onChange={(event) =>
                   form.setFieldValue("name", event.currentTarget.value)
                 }
-                radius="md"
               />
               <TextInput
                 label="User Name"
@@ -65,7 +64,6 @@ function UsersManagement() {
               />
 
               <TextInput
-                required
                 label="Email Address"
                 placeholder="Enter email address"
                 value={form.values.email}
@@ -95,6 +93,7 @@ function UsersManagement() {
               <Anchor
                 component="button"
                 type="button"
+                color="#050A30"
                 c="dimmed"
                 td="underline"
                 // onClick={() => toggle()}
@@ -102,8 +101,8 @@ function UsersManagement() {
                 Reset
               </Anchor>
               <Group>
-                <Button type="submit" radius="sm" color="gray">
-                  cancel
+                <Button type="submit" radius="sm" color="gray" variant="light" >
+                  Cancel
                 </Button>
                 <Button type="submit" radius="sm" color="green">
                   Add
