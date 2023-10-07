@@ -2,7 +2,7 @@ import { DataTable } from "mantine-datatable";
 import users from "../data/users.json";
 import dayjs from "dayjs";
 import { User } from "../types/User";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import {
   Group,
   Paper,
@@ -26,6 +26,7 @@ import {
   IconBan,
   IconLock,
 } from "@tabler/icons-react";
+import { useDebouncedValue } from "@mantine/hooks";
 
 export default function UsersDataGrid() {
   const initialRecords = users;
@@ -34,11 +35,33 @@ export default function UsersDataGrid() {
   const [status, setStatus] = useState<string | null>("Any");
   const [date, setDate] = useState<Date | null>(new Date());
 
-  const getSearchResults = (event: {
-    currentTarget: { value: SetStateAction<string | undefined> };
-  }) => {
-    const user = event.currentTarget.value;
-  };
+  const [query, setQuery] = useState("");
+  const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
+  const [debouncedQuery] = useDebouncedValue(query, 200);
+
+  // const getSearchResults = (event: {
+  //   currentTarget: { value: SetStateAction<string | undefined> };
+  // }) => {
+  //   const user = event.currentTarget.value;
+  // };
+
+  useEffect(() => {
+    setRecords(
+      initialRecords.filter(({ name, group }) => {
+        if (
+          debouncedQuery !== "" &&
+          !`${name}`.toLowerCase().includes(debouncedQuery.trim().toLowerCase())
+        ) {
+          return false;
+        }
+
+        if (selectedGroups.length && !selectedGroups.some((g) => g === group)) {
+          return false;
+        }
+        return true;
+      })
+    );
+  }, [debouncedQuery, selectedGroups]);
 
   const getStatusFilterResults = (value: string) => {
     if (value === "Any") {
@@ -56,7 +79,8 @@ export default function UsersDataGrid() {
             <TextInput
               icon={<IconSearch />}
               placeholder="Search.."
-              onChange={(event) => getSearchResults(event)}
+              // onChange={(event) => getSearchResults(event)}
+              onChange={(e) => setQuery(e.currentTarget.value)}
             />
             <TextInput value={"User Name"} />
           </Group>
