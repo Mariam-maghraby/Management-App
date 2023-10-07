@@ -47,10 +47,10 @@ export default function UsersDataGrid() {
 
   useEffect(() => {
     setRecords(
-      initialRecords.filter(({ name, group }) => {
+      initialRecords.filter(({ userName, group }) => {
         if (
           debouncedQuery !== "" &&
-          !`${name}`.toLowerCase().includes(debouncedQuery.trim().toLowerCase())
+          !`${userName}`.toLowerCase().includes(debouncedQuery.trim().toLowerCase())
         ) {
           return false;
         }
@@ -201,7 +201,7 @@ export default function UsersDataGrid() {
           ellipsis: true,
           titleSx: (theme) => ({ "&&": { color: theme.colors.gray[6] } }),
         }}
-        records={users}
+        records={records}
         selectedRecords={selectedRecords}
         onSelectedRecordsChange={setSelectedRecords}
       />
